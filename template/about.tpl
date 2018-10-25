@@ -1,4 +1,8 @@
 <style>
+#_about
+{
+  overflow-y:auto;
+}
 #_about .title
 {
   margin-top:30px;
@@ -13,13 +17,13 @@
   padding:20px 5px;
   min-width:300px;
   max-width:90%;
-  height:420px;
+  height:400px;
   border-radius:25px;
 }
 #_about .content ul li
 {
   position:relative;
-  margin:10px;
+  margin:5px;
   border-radius:100%;
   text-align:center;
   overflow:hidden;
@@ -63,10 +67,12 @@ $(document).ready(function(){
   $('#_about .content ul li').each(function(){
     // $(this).find('span').css({''});
     var wh=$(this).find('span').outerWidth();
+    var rand=random(20,50);
     $(this).css({
-      'width':wh+20,
-      'height':wh+20,
-      'line-height':wh+20+'px'
+      'width':wh+rand,
+      'height':wh+rand,
+      'line-height':wh+rand+'px',
+      'border-radius':wh+rand
     });
   });
 }).attr('title','关于我'+S.title);

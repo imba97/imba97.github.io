@@ -11,11 +11,10 @@
   <div id="header">
     <ul>
       <li id="menu"><a data="0" href="javascript:;">≡</a></li>
-      <li><a href="#">首页</a></li>
+      <li><a href="#index">首页</a></li>
       <li><a href="#about">关于我</a></li>
-      <li><a href="#hash2">地址2</a></li>
-      <li><a href="#hash3">地址3</a></li>
-      <li><a href="#hash4">地址4</a></li>
+      <li><a href="#hash1">无效的hash1</a></li>
+      <li><a href="#hash2">无效的hash2</a></li>
     </ul>
     <div class="clear bg"></div>
   </div>
@@ -36,17 +35,15 @@
 <script type="text/javascript">
 $(document).ready(function(){
   //header
-  $('#menu a').click(function(){
-    if($(this).attr('data')=='0')
+  $('#header ul li a').click(function(){
+    if(S.isPhone&&$(this).attr('data')=='0')
     {
-      var height=($('#header ul li').length)*$('#header ul li:first').outerHeight();
-      $('#header ul').css({'width':'100%'}).animate({'height':height});
-      $(this).attr('data','1');
+      menu_view(true);
     }
     else
     {
-      $('#header ul').animate({'height':50});
-      $(this).attr('data','0');
+      if($(this).attr('href').split('#')[1]!=S.tpl)
+      menu_view(false);
     }
   });
 });

@@ -86,6 +86,7 @@ $(document).ready(function(){
       if(S.tpl==null||S.tpl=='')
       {
         S.tpl='index';
+        location.hash=S.tpl;
       }
       var url='./template/'+S.tpl+'.tpl';
     }
@@ -133,16 +134,31 @@ $(document).ready(function(){
     setWH();
   });
 
-  $('body').append('<a id="clear_ls" style="position:absolute;bottom:20px;right:20px;color:#FFF;" href="javasciprt:;">清除ls刷新</a>');
+  $('#footer').append('<a id="clear_ls" style="position:absolute;bottom:20px;right:20px;color:#FFF;" href="javasciprt:;">清除ls刷新</a>');
   $('#clear_ls').click(function(){
     S.ls.removeItem(S.tpl);
     tpl_load(S.tpl);
   });
-
-  function random(min,max)
-  {
-    min=min==undefined?0:min;
-    max=max==undefined?0:max;
-    return Math.round(Math.random()*(max-min))+min;
-  }
 });
+
+function random(min,max)
+{
+  min=min==undefined?0:min;
+  max=max==undefined?0:max;
+  return Math.round(Math.random()*(max-min))+min;
+}
+
+function menu_view(k)
+{
+  if(k&&$('#menu a').attr('data')=='0')
+  {
+    var height=($('#header ul li').length)*$('#header ul li:first').outerHeight();
+    $('#header ul').css({'width':'100%'}).animate({'height':height});
+    $('#menu a').attr('data','1');
+  }
+  else
+  {
+    $('#header ul').animate({'height':50});
+    $('#menu a').attr('data','0');
+  }
+}
