@@ -46,11 +46,14 @@ $(document).ready(function(){
       'width':S.w_w,
       'height':S.w_h-S.header_h-S.footer_h
     });
-    if(S.w_w<=999)
+    if(S.w_w<=640)
     {
-      $('#header ul li').each(function(){
-
-      });
+      // $('#header ul').attr('isPhone','1');
+    }
+    else
+    {
+      // $('#header ul').attr('isPhone','0');
+      // $('#header ul li').show();
     }
   }
   $('#main div[view-data=1]').css({'left':-S.w_w});
@@ -84,7 +87,7 @@ $(document).ready(function(){
     }
     $('#main div[view-data='+v+']').stop(true).animate({'zoom':0.9,'opacity':0},function(){
       $(this).css({'left':-S.w_w}).html('');
-      if(S.ls[S.temp]!=undefined&&S.ls[S.temp]!='')
+      if(S.ls&&S.ls[S.temp]!=undefined&&S.ls[S.temp]!='')
       {
         $('#main div[view-data='+S.view+']').html(S.ls[S.temp]);
       }
@@ -93,7 +96,10 @@ $(document).ready(function(){
         $('#main div[view-data='+S.view+']').load(url,function(res,status){
           if(status!='error')
           {
-            S.ls.setItem(S.temp,$(this).html());
+            if(S.ls)
+            {
+              S.ls.setItem(S.temp,$(this).html());
+            }
           }
           else
           {

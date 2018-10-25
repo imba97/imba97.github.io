@@ -15,7 +15,7 @@
     content:'';
     position:absolute;
     top:5px;left:5px;
-    background:transparent url('http://q1.qlogo.cn/g?b=qq&nk=1149101824&s=640') no-repeat scroll 0 0 / 100% auto;
+    background:transparent url('https://q1.qlogo.cn/g?b=qq&nk=1149101824&s=640') no-repeat scroll 0 0 / 100% auto;
     width:200px;
     height:200px;
     border-radius:100px;
