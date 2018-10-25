@@ -1,14 +1,15 @@
 var S={
   title:' - imba久期',
   errorTemplate:'./template/error.tpl',
-  temp:null,
+  tpl:null,
   w_w:$(window).width(),
   w_h:$(window).height(),
   view:1,
   header_h:null,
   footer_h:null,
   ls:window.localStorage || false,
-  hisname:null
+  hisname:null,
+  isView:false
 }
 
 $.fn.extend({
@@ -58,10 +59,12 @@ $(document).ready(function(){
   }
   $('#main div[view-data=1]').css({'left':-S.w_w});
   //初始化 加载index
-  temp_load();
-  function temp_load(t)
+  tpl_load();
+  function tpl_load(t)
   {
-    S.temp=location.hash.substring(1);
+    if(S.isView){location.hash=S.tpl;return false;}
+    S.isView=true;
+    S.tpl=location.hash.substring(1);
     if(S.view===0)
     {
       S.view=1;
@@ -74,22 +77,22 @@ $(document).ready(function(){
     }
     if(t!=undefined&&t!='')
     {
-      S.temp=t;
-      var url='./template/'+S.temp+'.tpl';
+      S.tpl=t;
+      var url='./template/'+S.tpl+'.tpl';
     }
     if(url==undefined||url=='')
     {
-      if(S.temp==null||S.temp=='')
+      if(S.tpl==null||S.tpl=='')
       {
-        S.temp='index';
+        S.tpl='index';
       }
-      var url='./template/'+S.temp+'.tpl';
+      var url='./template/'+S.tpl+'.tpl';
     }
-    $('#main div[view-data='+v+']').stop(true).animate({'zoom':0.9,'opacity':0},function(){
+    $('#main div[view-data='+v+']').animate({'zoom':0.9,'opacity':0},function(){
       $(this).css({'left':-S.w_w}).html('');
-      if(S.ls&&S.ls[S.temp]!=undefined&&S.ls[S.temp]!='')
+      if(S.ls&&S.ls[S.tpl]!=undefined&&S.ls[S.tpl]!='')
       {
-        $('#main div[view-data='+S.view+']').html(S.ls[S.temp]);
+        $('#main div[view-data='+S.view+']').html(S.ls[S.tpl]);
       }
       else
       {
@@ -98,7 +101,7 @@ $(document).ready(function(){
           {
             if(S.ls)
             {
-              S.ls.setItem(S.temp,$(this).html());
+              S.ls.setItem(S.tpl,$(this).html());
             }
           }
           else
@@ -111,14 +114,16 @@ $(document).ready(function(){
         'left':0,
         'zoom':1.1,
         'opacity':0
-      }).stop(true).animate({'zoom':1,'opacity':1});
+      }).animate({'zoom':1,'opacity':1},function(){
+        S.isView=false;
+      });
     });
   }
 
   // S.ls.removeItem("a");
 
   window.onhashchange=function(){
-    temp_load();
+    tpl_load();
   }
 
   $(window).resize(function(){
@@ -129,7 +134,7 @@ $(document).ready(function(){
 
   $('body').append('<a id="clear_ls" style="position:absolute;bottom:20px;right:20px;color:#FFF;" href="javasciprt:;">清除ls刷新</a>');
   $('#clear_ls').click(function(){
-    S.ls.removeItem(S.temp);
-    temp_load(S.temp);
+    S.ls.removeItem(S.tpl);
+    tpl_load(S.tpl);
   });
 });

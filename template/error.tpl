@@ -30,9 +30,9 @@
 </div>
 <script>
 $(document).ready(function(){
-  if(S.temp!=null)
+  if(S.tpl!=null)
   {
-    $('#tempname').text('“'+S.temp+'”');
+    $('#tempname').text('“'+S.tpl+'”');
   }
-}).attr('title',S.temp+' 错误 '+S.title);
+}).attr('title',S.tpl+' 错误 '+S.title);
 </script>

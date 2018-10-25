@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css" />
   <title>个人主页 - imba久期</title>
 </head>
@@ -36,7 +37,7 @@ $(document).ready(function(){
   $('#menu a').click(function(){
     if($(this).attr('data')=='0')
     {
-      var height=($('#header ul li').length-1)*$('#header ul li:first').outerHeight();
+      var height=($('#header ul li').length)*$('#header ul li:first').outerHeight();
       $('#header ul').css({'width':'100%'}).animate({'height':height});
       $(this).attr('data','1');
     }
