@@ -1,0 +1,76 @@
+body,div,p,ul,li{margin:0;padding:0;}
+@media screen and (min-width: 1000px) and (max-width: 9999px)
+{
+    body{background:transparent url('https://images4.alphacoders.com/628/628927.png') no-repeat scroll 0 0 / 100% auto;}
+}
+@media screen and (max-width: 999px)
+{
+  body{background:transparent url('https://images4.alphacoders.com/628/628927.png') no-repeat scroll 50% 0 / auto 100%;}
+}
+a{text-decoration:none;color:#000}
+.clear{clear:both}
+#header
+{
+  position:relative;
+  width:100%;
+  height:50px;
+}
+#header ul
+{
+
+}
+#header ul li
+{
+  width:70px;
+  height:50px;
+  list-style:none;
+  float:left;
+}
+
+#header ul li a
+{
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  color:#FFF;
+  display:block;
+}
+
+#main
+{
+  position:relative;
+  overflow:hidden;
+}
+#main div[view-data="0"],#main div[view-data="1"]
+{
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+}
+.tpl
+{
+  width:100%;
+  height:100%;
+}
+
+#footer
+{
+  position:relative;
+  width:100%;
+  height:50px;
+}
+#footer p
+{
+  color:#FFF;
+}
+.bg
+{
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  background-color:#000;
+  opacity:0.75;
+  z-index:-1;
+}
