@@ -9,7 +9,8 @@ var S={
   footer_h:null,
   ls:window.localStorage || false,
   hisname:null,
-  isView:false
+  isView:false,
+  isPhone:false
 }
 
 $.fn.extend({
@@ -49,12 +50,12 @@ $(document).ready(function(){
     });
     if(S.w_w<=640)
     {
-      // $('#header ul').attr('isPhone','1');
+      S.isPhone=true;
     }
     else
     {
-      // $('#header ul').attr('isPhone','0');
-      // $('#header ul li').show();
+      S.isPhone=false;
+      $('#header ul').css({'height':50}).find('#menu a').attr('data','0');
     }
   }
   $('#main div[view-data=1]').css({'left':-S.w_w});
@@ -137,4 +138,11 @@ $(document).ready(function(){
     S.ls.removeItem(S.tpl);
     tpl_load(S.tpl);
   });
+
+  function random(min,max)
+  {
+    min=min==undefined?0:min;
+    max=max==undefined?0:max;
+    return Math.round(Math.random()*(max-min))+min;
+  }
 });
