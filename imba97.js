@@ -1,16 +1,15 @@
 var S={
-  title:' - imba久期',
-  errorTemplate:'./template/error.tpl',
-  tpl:null,
-  w_w:$(window).width(),
-  w_h:$(window).height(),
-  view:1,
-  header_h:null,
-  footer_h:null,
+  title:' - imba久期',//title后缀
+  errorTemplate:'./template/error.tpl',//错误模板路径
+  tpl:null,//当前模板
+  w_w:$(window).width(),//页面宽度
+  w_h:$(window).height(),//页面高度
+  view:1,//正在显示模板的div（第一次是0）
+  header_h:null,//header高度
+  footer_h:null,//footer高度
   ls:window.localStorage || false,
-  hisname:null,
-  isView:false,
-  isPhone:false
+  isView:false,//是否正在显示切换
+  isPhone:false//是否是手机（宽度低于640px则被判断为手机）
 }
 
 $.fn.extend({
@@ -44,10 +43,6 @@ $(document).ready(function(){
   setWH();
   function setWH()
   {
-    $('#main,#main .tpl').css({
-      'width':S.w_w,
-      'height':S.w_h-S.header_h-S.footer_h
-    });
     if(S.w_w<=640)
     {
       S.isPhone=true;
@@ -57,10 +52,16 @@ $(document).ready(function(){
       S.isPhone=false;
       $('#header ul').css({'height':50}).find('#menu a').attr('data','0');
     }
+    if(S.header_h==0) S.header_h=50;
+    $('#main,#main .tpl').css({
+      'width':S.w_w,
+      'height':S.w_h-S.header_h-S.footer_h
+    });
   }
   $('#main div[view-data=1]').css({'left':-S.w_w});
   //初始化 加载index
   tpl_load();
+  //加载函数
   function tpl_load(t)
   {
     if(S.isView){location.hash=S.tpl;return false;}
@@ -90,7 +91,7 @@ $(document).ready(function(){
       }
       var url='./template/'+S.tpl+'.tpl';
     }
-    $('#main div[view-data='+v+']').animate({'zoom':0.9,'opacity':0},function(){
+    $('#main div[view-data='+v+']').animate({'opacity':0},function(){
       $(this).css({'left':-S.w_w}).html('');
       if(S.ls&&S.ls[S.tpl]!=undefined&&S.ls[S.tpl]!='')
       {
@@ -114,9 +115,8 @@ $(document).ready(function(){
       }
       $('#main div[view-data='+S.view+']').css({
         'left':0,
-        'zoom':1.1,
         'opacity':0
-      }).animate({'zoom':1,'opacity':1},function(){
+      }).animate({'opacity':1},function(){
         S.isView=false;
       });
     });
@@ -134,7 +134,8 @@ $(document).ready(function(){
     setWH();
   });
 
-  $('#footer').append('<a id="clear_ls" style="position:absolute;bottom:20px;right:20px;color:#FFF;" href="javasciprt:;">清除ls刷新</a>');
+  if(S.ls) $('#footer').append('<a id="clear_ls" style="position:absolute;bottom:20px;right:20px;color:#FFF;" href="javasciprt:;">清除ls刷新</a>');
+  else $('#footer').append('<span style="position:absolute;bottom:20px;right:20px;color:#FFF;"">没有localStorage</span>');
   $('#clear_ls').click(function(){
     S.ls.removeItem(S.tpl);
     tpl_load(S.tpl);

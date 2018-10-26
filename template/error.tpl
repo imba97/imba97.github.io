@@ -1,32 +1,47 @@
 <style>
 #_error .title
 {
-  margin:30px auto 0 auto;
-  font-size:30px;
+  margin-top:10px;
+  font-size:50px;
   text-align:center;
-  color:#FFF;
+  color:#F66;
+}
+#_error .content
+{
+  position:relative;
+  margin:30px auto 0 auto;
+  padding:20px 20px 50px 20px;
+  width:80%;
+  min-width:400px;
+  max-width:500px;
+  height:auto;
+  border-radius:20px;
+  overflow:hidden;
 }
 #_error .msg
 {
   margin:30px auto 0 auto;
-  width:800px;
+  width:100%;
   font-size:24px;
   color:#FFF;
 }
 #_error .info
 {
   margin:20px auto 0 auto;
-  width:750px;
+  width:100%;
   color:#FFF;
 }
 </style>
 <div class="tpl" id="_error">
-  <p class="title">ERROR</p>
-  <p class="msg">可能的原因：</p>
-  <ol class="info">
-    <li><span id="tempname"></span>模板文件不存在。</li>
-    <li>请求失败，刷新重试</li>
-  </ol>
+  <div class="content">
+    <p class="title">ERROR</p>
+    <p class="msg">可能的原因：</p>
+    <ol class="info">
+      <li><span id="tempname"></span>模板文件不存在。</li>
+      <li>请求失败或浏览器缓存，清除缓存刷新重试</li>
+    </ol>
+    <div class="bg"></div>
+  </div>
 </div>
 <script>
 $(document).ready(function(){
@@ -34,5 +49,5 @@ $(document).ready(function(){
   {
     $('#tempname').text('“'+S.tpl+'”');
   }
-}).attr('title',S.tpl+' 错误 '+S.title);
+}).attr('title','fa♂生了错误 '+S.tpl+S.title);
 </script>

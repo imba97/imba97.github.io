@@ -4,7 +4,7 @@
   #_index .profile
   {
     position:absolute;
-    top:5%;left:25%;
+    top:5%;left:20%;
     width:210px;
     height:210px;
     border-radius:105px;
@@ -60,15 +60,20 @@
   }
 }
 
+#_index .msg p
+{
+  margin:10px 0;
+}
+
 </style>
 <div class="tpl" id="_index">
   <div class="profile">
     <div class="wm">
       <div class="msg">
-        <p>这只是个普通的首页</p>
-        <p>2323123123123</p>
-
-        <p>2323123123123</p>
+        <p>各位好，这里是我新开的可能随时弃坑的坑</p>
+        <p>定位是个人网站，第一次尝试很多技术，无刷新、自适应等</p>
+        <p>基本找找教程然后瞎做的，无刷新是用hash，也就是锚点来判断，让网页中间的#main加载不同的页面文件，直接用的jQuery的load()函数</p>
+        <p>还用了localStorage本地储存把加载过的模板存到本地，加快下次加载速度（大概有用吧）</p>
       </div>
       <div class="bg"></div>
     </div>

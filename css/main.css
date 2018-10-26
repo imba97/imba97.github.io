@@ -6,7 +6,7 @@ body{overflow:hidden;}
 }
 @media screen and (max-width: 999px)
 {
-  body{background:transparent url('https://images4.alphacoders.com/628/628927.png') no-repeat scroll 50% 0 / auto 100%;}
+  body{background:transparent url('https://images4.alphacoders.com/628/628927.png') no-repeat scroll 80% 0 / auto 100%;}
 }
 a{text-decoration:none;color:#000}
 .clear{clear:both}
@@ -18,7 +18,8 @@ a{text-decoration:none;color:#000}
   }
   #header ul li
   {
-    width:70px;
+    width:auto;
+    min-width:70px;
     height:50px;
     list-style:none;
     float:left;
@@ -49,6 +50,7 @@ a{text-decoration:none;color:#000}
 {
   position:relative;
   width:100%;
+  min-height:50px;
   height:auto;
 }
 
