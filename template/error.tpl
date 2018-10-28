@@ -12,7 +12,7 @@
   margin:30px auto 0 auto;
   padding:20px 20px 50px 20px;
   width:80%;
-  min-width:400px;
+  min-width:300px;
   max-width:500px;
   height:auto;
   border-radius:20px;
@@ -30,6 +30,10 @@
   margin:20px auto 0 auto;
   width:100%;
   color:#FFF;
+}
+#_error .info li
+{
+  width:90%;
 }
 </style>
 <div class="tpl" id="_error">

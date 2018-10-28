@@ -9,7 +9,9 @@ var S={
   footer_h:null,//footer高度
   ls:window.localStorage || false,
   isView:false,//是否正在显示切换
-  isPhone:false//是否是手机（宽度低于640px则被判断为手机）
+  isPhone:false,//是否是手机（宽度低于640px则被判断为手机）
+  backShow:false,
+  back:['worksJpinput','worksSiteConnect','worksWhoisRed']
 }
 
 $.fn.extend({
@@ -67,6 +69,10 @@ $(document).ready(function(){
     if(S.isView){location.hash=S.tpl;return false;}
     S.isView=true;
     S.tpl=location.hash.substring(1);
+    if(S.isPhone&&$.inArray(S.tpl,S.back)>=0)
+    {
+      backShow(true);
+    }
     if(S.view===0)
     {
       S.view=1;
@@ -140,6 +146,12 @@ $(document).ready(function(){
     S.ls.removeItem(S.tpl);
     tpl_load(S.tpl);
   });
+
+  $('#header .back').click(function(){
+    backShow(false);
+  });
+
+
 });
 
 function random(min,max)
@@ -161,5 +173,24 @@ function menu_view(k)
   {
     $('#header ul').animate({'height':50});
     $('#menu a').attr('data','0');
+  }
+}
+
+function backShow(k)
+{
+  if(S.backShow) return false;
+  S.backShow=true;
+  if(k)
+  {
+    $('#header .back').fadeIn(1000,function(){
+      S.backShow=false;
+    });
+  }
+  else
+  {
+    window.history.go(-1);
+    $('#header .back').fadeOut(1000,function(){
+      S.backShow=false;
+    });
   }
 }

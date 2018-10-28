@@ -13,11 +13,10 @@
 #_about .content
 {
   position:relative;
-  margin:30px; auto 0 auto;
+  margin:30px auto 0 auto;
   padding:20px 5px;
   min-width:300px;
   max-width:90%;
-  height:400px;
   border-radius:25px;
 }
 #_about .content ul li
