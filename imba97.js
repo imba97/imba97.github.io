@@ -10,8 +10,8 @@ var S={
   ls:window.localStorage || false,
   isView:false,//是否正在显示切换
   isPhone:false,//是否是手机（宽度低于640px则被判断为手机）
-  backShow:false,
-  back:['worksJpinput','worksSiteConnect','worksWhoisRed']
+  backShow:false,//是否正在显示或隐藏返回按钮
+  back:['worksJpinput','worksSiteConnect','worksWhoisRed']//显示返回按钮的模板
 }
 
 $.fn.extend({
@@ -72,6 +72,10 @@ $(document).ready(function(){
     if(S.isPhone&&$.inArray(S.tpl,S.back)>=0)
     {
       backShow(true);
+    }
+    else
+    {
+      backShow(false);
     }
     if(S.view===0)
     {
@@ -148,7 +152,7 @@ $(document).ready(function(){
   });
 
   $('#header .back').click(function(){
-    backShow(false);
+    backShow(false,true);
   });
 
 
@@ -165,7 +169,7 @@ function menu_view(k)
 {
   if(k&&$('#menu a').attr('data')=='0')
   {
-    var height=($('#header ul li').length)*$('#header ul li:first').outerHeight();
+    var height=$('#header ul li').length*$('#header ul li:first').outerHeight();
     $('#header ul').css({'width':'100%'}).animate({'height':height});
     $('#menu a').attr('data','1');
   }
@@ -176,9 +180,10 @@ function menu_view(k)
   }
 }
 
-function backShow(k)
+function backShow(k,back)
 {
   if(S.backShow) return false;
+  if(back==undefined) back=false;
   S.backShow=true;
   if(k)
   {
@@ -188,7 +193,7 @@ function backShow(k)
   }
   else
   {
-    window.history.go(-1);
+    if(back) window.history.go(-1);
     $('#header .back').fadeOut(1000,function(){
       S.backShow=false;
     });

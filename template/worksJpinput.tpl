@@ -1,7 +1,7 @@
 <style>
 
 </style>
-<div class="tpl" id="_worksJpinput">
+<div class="tpl works" id="_worksJpinput">
   <div class="c-header">
     <ul>
       <li>项目名称：人型自走输入法</li>

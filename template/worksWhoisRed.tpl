@@ -1,7 +1,7 @@
 <style>
 
 </style>
-<div class="tpl" id="_worksJpinput">
+<div class="tpl works" id="_worksWhoisRed">
   <div class="c-header">
     <ul>
       <li>项目名称：查询域名到期时间</li>
@@ -19,6 +19,6 @@
 </div>
 <script>
 $(document).ready(function(){
-  if(!S.isPhone) $("#_worksJpinput").mCustomScrollbar();
+  if(!S.isPhone) $("#_worksWhoisRed").mCustomScrollbar();
 }).attr('title','查询域名到期时间'+S.title);
 </script>

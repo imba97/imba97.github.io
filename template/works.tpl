@@ -77,6 +77,15 @@
           <p class="time">2017-10-23</p>
           <div class="bg"></div>
         </li>
+        <li>
+          <a href="#worksSwitch">Switch关灯工具</a>
+          <p class="time">2017-10-23</p>
+          <div class="bg"></div>
+        </li>
+        <li>
+          <a href="http://g.imba97.cn">更多</a>
+          <div class="bg"></div>
+        </li>
       </ul>
       <div class="clear"></div>
     </div>
@@ -86,7 +95,7 @@
 $(document).ready(function(){
   if(!S.isPhone) $("#_works").mCustomScrollbar();
   $('#_works .w-all ul li').click(function(){
-    $(this).animate({'margin-left':200});
+    $(this).animate({'margin-left':200,'opacity':0});
   });
 }).attr('title','作品们'+S.title);
 </script>

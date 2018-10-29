@@ -26,7 +26,7 @@ a{text-decoration:none;color:#000}
     float:left;
   }
 
-  #_worksJpinput .c-header,#_worksJpinput .c-body
+  .works .c-header,.works .c-body
   {
     margin:30px auto;
     padding:20px;
@@ -56,12 +56,12 @@ a{text-decoration:none;color:#000}
     float:left;
   }
 
-  #_worksJpinput .c-header
+  .works .c-header
   {
     width:100%;
     padding:10px 0 0 10px;
   }
-  #_worksJpinput .c-body
+  .works .c-body
   {
     padding:20px 0;
   }
@@ -85,11 +85,14 @@ a{text-decoration:none;color:#000}
 }
 #header .back::before
 {
-  position:absolute;
-  top:0;left:2px;
   content:'←';
+  text-align:center;
+  width:30px;
+  height:30px;
+  line-height:30px;
   color:#FFF;
   font-size:24px;
+  display:block;
 }
 
 #header ul li a
@@ -130,33 +133,39 @@ a{text-decoration:none;color:#000}
   color:#FFF;
 }
 
-#_worksJpinput
+.works
 {
   overflow-y:auto;
   overflow-x:hidden;
 }
-#_worksJpinput .c-header,#_worksJpinput .c-body
+.works .c-header,.works .c-body
 {
   position:relative;
 }
-#_worksJpinput .c-header ul li
+.works .c-header ul li
 {
   color:#FFF;
   list-style:none;
 }
-#_worksJpinput img
+.works img
 {
   border-radius:5px;
   display:block;
 }
-#_worksJpinput p,#_worksJpinput img
+.works p,.works img
 {
   margin:10px auto;
   width:90%;
 }
-#_worksJpinput .text
+.works .text,.works .text a
 {
   color:#FFF;
+}
+.works .text a
+{
+  border-bottom:2px;
+  border-bottom-color:#FFF;
+  border-bottom-style:solid;
 }
 
 .bg

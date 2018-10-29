@@ -46,6 +46,7 @@
     <li><span>上海</span><div class="bg"></div></li>
     <li><span>程序猿</span><div class="bg"></div></li>
     <li><span>PHP</span><div class="bg"></div></li>
+    <li><span>网站开发</span><div class="bg"></div></li>
     <li><span>没秃</span><div class="bg"></div></li>
     <li><span>佛系</span><div class="bg"></div></li>
     <li><span>钢铁直男</span><div class="bg"></div></li>
