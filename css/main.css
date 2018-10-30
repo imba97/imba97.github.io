@@ -166,6 +166,7 @@ a{text-decoration:none;color:#000}
   border-bottom:2px;
   border-bottom-color:#FFF;
   border-bottom-style:solid;
+  border-radius:0 0 3px 3px;
 }
 
 .bg

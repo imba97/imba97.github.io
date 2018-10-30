@@ -22,17 +22,21 @@
 #_about .content ul li
 {
   position:relative;
-  margin:0 3px;
+  margin:3px;
   border-radius:100%;
   text-align:center;
   overflow:hidden;
   float:left;
 }
-#_about .content ul li span
+#_about .content ul li span,#_about .content ul li a
 {
   padding:0 15px;
   color:#FFF;
   font-size:20px;
+}
+#_about .content ul li a
+{
+  display:block;
 }
 </style>
 <div class="tpl" id="_about">
@@ -52,8 +56,14 @@
     <li><span>钢铁直男</span><div class="bg"></div></li>
     <li><span>懒癌晚期</span><div class="bg"></div></li>
     <li><span>颓废</span><div class="bg"></div></li>
+    <li><span>准渣男</span><div class="bg"></div></li>
     <li><span>没救</span><div class="bg"></div></li>
+    <li><span>社恐</span><div class="bg"></div></li>
     <li><span>我jio得布星</span><div class="bg"></div></li>
+    <li><span>情商零</span><div class="bg"></div></li>
+    <li><span>开口得罪人</span><div class="bg"></div></li>
+    <li><a href="https://www.weibo.com/imbajq">微博</a><div class="bg"></div></li>
+    <li><a href="https://space.bilibili.com/2198461/#/">B站</a><div class="bg"></div></li>
   </ul>
   <div class="clear"></div>
 </div>
@@ -62,9 +72,9 @@
 $(document).ready(function(){
   if(!S.isPhone) $("#_about").mCustomScrollbar();
   $('#_about .content ul li').each(function(){
-    var wh=$(this).find('span').outerWidth();
+    var wh=$(this).find('span,a').outerWidth();
     var color=new Array('#000','#111','#222');
-    var rand=random(10,20);
+    var rand=random(10,30);
     $(this).css({
       'width':wh+rand,
       'height':wh+rand,

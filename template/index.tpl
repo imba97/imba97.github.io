@@ -63,6 +63,7 @@
   {
     position:absolute;
     top:0;left:0;
+    margin-bottom: 50px;
     padding:5px;
     color:#FFF;
   }

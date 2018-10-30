@@ -11,7 +11,8 @@ var S={
   isView:false,//是否正在显示切换
   isPhone:false,//是否是手机（宽度低于640px则被判断为手机）
   backShow:false,//是否正在显示或隐藏返回按钮
-  back:['worksJpinput','worksSiteConnect','worksWhoisRed']//显示返回按钮的模板
+  back:['worksJpinput','worksSiteConnect','worksWhoisRed',
+        'worksSwitch','worksGetUrl']//显示返回按钮的模板
 }
 
 $.fn.extend({
@@ -145,7 +146,7 @@ $(document).ready(function(){
   });
 
   if(S.ls) $('#footer').append('<a id="clear_ls" style="position:absolute;bottom:20px;right:20px;color:#FFF;" href="javasciprt:;">清除ls刷新</a>');
-  else $('#footer').append('<span style="position:absolute;bottom:20px;right:20px;color:#FFF;"">没有localStorage</span>');
+  else $('#footer').append('<span style="position:absolute;bottom:20px;right:20px;color:#FFF;"">不支持localStorage</span>');
   $('#clear_ls').click(function(){
     S.ls.removeItem(S.tpl);
     tpl_load(S.tpl);
@@ -193,7 +194,14 @@ function backShow(k,back)
   }
   else
   {
-    if(back) window.history.go(-1);
+    if(window.history.length > 1)
+    {
+      if(back) window.history.go(-1);
+    }
+    else
+    {
+      window.location='#works';
+    }
     $('#header .back').fadeOut(1000,function(){
       S.backShow=false;
     });

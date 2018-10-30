@@ -49,13 +49,9 @@
 #_works .w-all ul li .time
 {
   position:absolute;
-  right:5px;bottom:5px;
+  right:10px;bottom:10px;
   color:#FFF;
   font-size:14px;
-}
-#jpinput
-{
-
 }
 </style>
 <div class="tpl" id="_works">
@@ -64,22 +60,32 @@
       <ul>
         <li>
           <a href="#worksJpinput">人型自走输入法</a>
-          <p class="time">2017-02-10</p>
+          <span class="time">2017-02-10</span>
           <div class="bg"></div>
         </li>
         <li>
           <a href="#worksSiteConnect">查询网站是否可以访问</a>
-          <p class="time">2017-10-19</p>
+          <span class="time">2017-10-19</span>
           <div class="bg"></div>
         </li>
         <li>
           <a href="#worksWhoisRed">查询域名到期时间</a>
-          <p class="time">2017-10-23</p>
+          <span class="time">2017-10-23</span>
           <div class="bg"></div>
         </li>
         <li>
           <a href="#worksSwitch">Switch关灯工具</a>
-          <p class="time">2017-10-23</p>
+          <span class="time">2018-01-25</span>
+          <div class="bg"></div>
+        </li>
+        <li>
+          <a href="#worksGetUrl">一键获取专栏网址</a>
+          <span class="time">2017-06-27</span>
+          <div class="bg"></div>
+        </li>
+
+        <li>
+          <a href="https://space.bilibili.com/2198461/#/">我的视频</a>
           <div class="bg"></div>
         </li>
         <li>
