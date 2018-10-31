@@ -70,7 +70,9 @@
 </div>
 <script>
 $(document).ready(function(){
-  if(!S.isPhone) $("#_about").mCustomScrollbar();
+  if(!S.isPhone) $("#_about").mCustomScrollbar({
+    axis:'y'
+  });
   $('#_about .content ul li').each(function(){
     var wh=$(this).find('span,a').outerWidth();
     var color=new Array('#000','#111','#222');

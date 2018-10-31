@@ -28,7 +28,9 @@
 </div>
 <script>
 $(document).ready(function(){
-  if(!S.isPhone) $("#_worksJpinput").mCustomScrollbar();
+  if(!S.isPhone) $("#_worksJpinput").mCustomScrollbar({
+    axis:'y'
+  });
 
   _hmt.push(['_setPageTag', '5343', '作品页']);
 }).attr('title','人型自走输入法'+S.title);

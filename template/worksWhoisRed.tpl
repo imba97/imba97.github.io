@@ -20,7 +20,9 @@
 </div>
 <script>
 $(document).ready(function(){
-  if(!S.isPhone) $("#_worksWhoisRed").mCustomScrollbar();
+  if(!S.isPhone) $("#_worksWhoisRed").mCustomScrollbar({
+    axis:'y'
+  });
 
   _hmt.push(['_setPageTag', '5343', '作品页']);
 }).attr('title','查询域名到期时间'+S.title);

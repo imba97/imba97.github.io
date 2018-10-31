@@ -1,5 +1,6 @@
 body,div,p,ul,li{margin:0;padding:0;}
 body{overflow:hidden;}
+li{list-style:none;}
 @media screen and (min-width: 1000px) and (max-width: 9999px)
 {
   body{background:transparent url('https://images4.alphacoders.com/628/628927.png') no-repeat scroll 0 0 / 100% auto;}
@@ -22,7 +23,6 @@ a{text-decoration:none;color:#000}
     width:auto;
     min-width:70px;
     height:50px;
-    list-style:none;
     float:left;
   }
 
@@ -52,7 +52,6 @@ a{text-decoration:none;color:#000}
   {
     width:100%;
     height:50px;
-    list-style:none;
     float:left;
   }
 
@@ -145,7 +144,6 @@ a{text-decoration:none;color:#000}
 .works .c-header ul li
 {
   color:#FFF;
-  list-style:none;
 }
 .works img
 {

@@ -33,7 +33,6 @@
   position:relative;
   width:100%;
   height:100px;
-  list-style:none;
 }
 #_works .w-all ul li a
 {
@@ -85,7 +84,7 @@
         </li>
 
         <li>
-          <a href="https://space.bilibili.com/2198461/#/">我的视频</a>
+          <a href="#video">我的视频</a>
           <div class="bg"></div>
         </li>
         <li>
@@ -99,7 +98,9 @@
 </div>
 <script>
 $(document).ready(function(){
-  if(!S.isPhone) $("#_works").mCustomScrollbar();
+  if(!S.isPhone) $("#_works").mCustomScrollbar({
+    axis:'y'
+  });
   $('#_works .w-all ul li').click(function(){
     $(this).animate({'margin-left':200,'opacity':0});
   });
