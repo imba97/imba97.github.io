@@ -23,5 +23,7 @@
 <script>
 $(document).ready(function(){
   if(!S.isPhone) $("#_worksSiteConnect").mCustomScrollbar();
+
+  _hmt.push(['_setPageTag', '5343', '作品页']);
 }).attr('title','查询网站是否可以访问'+S.title);
 </script>

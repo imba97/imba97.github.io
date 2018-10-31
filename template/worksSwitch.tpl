@@ -22,5 +22,7 @@
 <script>
 $(document).ready(function(){
   if(!S.isPhone) $("#_worksSwitch").mCustomScrollbar();
+
+  _hmt.push(['_setPageTag', '5343', '作品页']);
 }).attr('title','Switch关灯工具'+S.title);
 </script>

@@ -103,5 +103,7 @@ $(document).ready(function(){
   $('#_works .w-all ul li').click(function(){
     $(this).animate({'margin-left':200,'opacity':0});
   });
+
+  _hmt.push(['_setPageTag', '5343', '作品页']);
 }).attr('title','作品们'+S.title);
 </script>

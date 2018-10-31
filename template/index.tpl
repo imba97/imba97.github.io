@@ -91,5 +91,6 @@
 <script>
 $(document).ready(function(){
 
+_hmt.push(['_setPageTag', '5341', '主页']);
 }).attr('title','个人主页'+S.title);
 </script>

@@ -83,5 +83,8 @@ $(document).ready(function(){
       'margin':'0 '+random(0,10)+'px'
     }).find('.bg').css({'background-color':color[random(0,color.length-1)],'opacity':0.6});
   });
+
+
+  _hmt.push(['_setPageTag', '5342', '关于我']);
 }).attr('title','关于我'+S.title);
 </script>
