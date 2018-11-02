@@ -1,3 +1,4 @@
-Disallow: /template
-Disallow: /images
-Disallow: /css
+User-agent: *
+Disallow: /template/
+Disallow: /images/
+Disallow: /css/

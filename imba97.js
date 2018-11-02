@@ -1,6 +1,7 @@
 var S={
   title:' - imba久期',//title后缀
   errorTemplate:'./template/error.tpl',//错误模板路径
+  images:'./images/',//图片路径
   tpl:null,//当前模板
   w_w:$(window).width(),//页面宽度
   w_h:$(window).height(),//页面高度
@@ -12,7 +13,11 @@ var S={
   isPhone:false,//是否是手机（宽度低于640px则被判断为手机）
   backShow:false,//是否正在显示或隐藏返回按钮
   back:['worksJpinput','worksSiteConnect','worksWhoisRed',
-        'worksSwitch','worksGetUrl']//显示返回按钮的模板
+        'worksSwitch','worksGetUrl'],//显示返回按钮的模板
+  imgLoad:null,
+  imgLoadNow:0,
+  imgLoadAll:0,
+  imgLoadTimer:null
 }
 
 $.fn.extend({
@@ -116,11 +121,13 @@ $(document).ready(function(){
             if(S.ls)
             {
               S.ls.setItem(S.tpl,$(this).html());
+              return true;
             }
           }
           else
           {
             $(this).load(S.errorTemplate+'?'+new Date().getTime().toString());
+            return false;
           }
         });
       }
@@ -129,10 +136,15 @@ $(document).ready(function(){
         'opacity':0
       }).animate({'opacity':1},function(){
         S.isView=false;
+
+        if($('.img').length>0)
+        {
+          S.imgLoadAll=$('.img').length;
+          S.imgLoadTimer=window.setInterval(imgLoad,200);
+        }
       });
     });
   }
-
   // S.ls.removeItem("a");
 
   window.onhashchange=function(){
@@ -206,4 +218,41 @@ function backShow(k,back)
       S.backShow=false;
     });
   }
+}
+
+function imgLoad()
+{
+
+  if(S.imgLoadNow>=S.imgLoadAll)
+  {
+    S.imgLoadNow=0;
+    window.clearInterval(S.imgLoadTimer);
+    return false;
+  }
+  S.imgLoad=$('.works .img_p:eq('+S.imgLoadNow+')');
+  var imgName=S.imgLoad.find('.img').attr('data-src');
+  if(S.ls&&S.ls[imgName]!=undefined&&S.ls[imgName]!='')
+  {
+    S.imgLoad.html('<img src="'+S.ls[imgName]+'">');
+  }
+  else
+  {
+    var xhr = $.ajax({
+      type: "HEAD",
+      url: S.images+imgName,
+      success:function(){
+        var fileSize=xhr.getResponseHeader('Content-Length');
+        var mb=(fileSize/1024/1024).toFixed(2)+'M';
+        var html='<span>[图片] '+mb+'</span>';
+        S.imgLoad.find('.img').html(html).bind('click',function(){
+          var scrollTop=$('.tpl').scrollTop();
+          var imgName=$(this).attr('data-src');
+          $(this).parent('.img_p').html('<img src="'+S.images+imgName+'">');
+          S.ls.setItem(imgName,S.images+imgName);
+        });
+      }
+    });
+  }
+
+  if(S.imgLoad.find('img,.img').length>0) S.imgLoadNow++;
 }
