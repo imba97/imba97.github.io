@@ -1,6 +1,6 @@
 var S={
   title:' - imba久期',//title后缀
-  errorTemplate:'./template/error.tpl',//错误模板路径
+  template:'./template/',
   images:'./images/',//图片路径
   tpl:null,//当前模板
   w_w:$(window).width(),//页面宽度
@@ -14,10 +14,11 @@ var S={
   backShow:false,//是否正在显示或隐藏返回按钮
   back:['worksJpinput','worksSiteConnect','worksWhoisRed',
         'worksSwitch','worksGetUrl'],//显示返回按钮的模板
-  imgLoad:null,
-  imgLoadNow:0,
-  imgLoadAll:0,
-  imgLoadTimer:null
+  imgLoad:null,//储存.img
+  imgLoadNow:0,//当前完成的图片数量
+  imgLoadAll:0,//所有图片
+  imgLoadTimer:null,//计时器
+  imgLoadTimeOut:0//time out 时间 （50）
 }
 
 $.fn.extend({
@@ -96,7 +97,7 @@ $(document).ready(function(){
     if(t!=undefined&&t!='')
     {
       S.tpl=t;
-      var url='./template/'+S.tpl+'.tpl';
+      var url=S.template+S.tpl+'.tpl';
     }
     if(url==undefined||url=='')
     {
@@ -105,7 +106,7 @@ $(document).ready(function(){
         S.tpl='index';
         location.hash=S.tpl;
       }
-      var url='./template/'+S.tpl+'.tpl';
+      var url=S.template+S.tpl+'.tpl';
     }
     $('#main div[view-data='+v+']').animate({'opacity':0},function(){
       $(this).css({'left':-S.w_w}).html('');
@@ -126,7 +127,7 @@ $(document).ready(function(){
           }
           else
           {
-            $(this).load(S.errorTemplate+'?'+new Date().getTime().toString());
+            $(this).load(S.template+'error.tpl?'+new Date().getTime().toString());
             return false;
           }
         });
@@ -139,6 +140,7 @@ $(document).ready(function(){
 
         if($('.img').length>0)
         {
+          S.imgLoadTimeOut=0;
           S.imgLoadAll=$('.img').length;
           S.imgLoadTimer=window.setInterval(imgLoad,200);
         }
@@ -147,16 +149,19 @@ $(document).ready(function(){
   }
   // S.ls.removeItem("a");
 
+  //hash变动是重新加载
   window.onhashchange=function(){
     tpl_load();
   }
 
+  //窗口变化是重新设置宽高
   $(window).resize(function(){
     S.w_w=$(window).outerWidth();
     S.w_h=$(window).outerHeight();
     setWH();
   });
 
+  //测试用 清除本地缓存
   if(S.ls) $('#footer').append('<a id="clear_ls" style="position:absolute;bottom:20px;right:20px;color:#FFF;" href="javasciprt:;">清除ls刷新</a>');
   else $('#footer').append('<span style="position:absolute;bottom:20px;right:20px;color:#FFF;"">不支持localStorage</span>');
   $('#clear_ls').click(function(){
@@ -164,6 +169,7 @@ $(document).ready(function(){
     tpl_load(S.tpl);
   });
 
+  //返回按钮
   $('#header .back').click(function(){
     backShow(false,true);
   });
@@ -173,11 +179,10 @@ $(document).ready(function(){
 
 function random(min,max)
 {
-  min=min==undefined?0:min;
-  max=max==undefined?0:max;
   return Math.round(Math.random()*(max-min))+min;
 }
 
+//头部导航栏自适应
 function menu_view(k)
 {
   if(k&&$('#menu a').attr('data')=='0')
@@ -193,6 +198,7 @@ function menu_view(k)
   }
 }
 
+//返回按钮函数
 function backShow(k,back)
 {
   if(S.backShow) return false;
@@ -220,10 +226,10 @@ function backShow(k,back)
   }
 }
 
+//图片加载函数
 function imgLoad()
 {
-
-  if(S.imgLoadNow>=S.imgLoadAll)
+  if(S.imgLoadNow>=S.imgLoadAll||S.imgLoadTimeOut>50)
   {
     S.imgLoadNow=0;
     window.clearInterval(S.imgLoadTimer);
@@ -254,5 +260,6 @@ function imgLoad()
     });
   }
 
-  if(S.imgLoad.find('img,.img').length>0) S.imgLoadNow++;
+  if(S.imgLoad.find('img,.img span').length>0) S.imgLoadNow++;
+  S.imgLoadTimeOut++;
 }
