@@ -18,7 +18,8 @@ var S={
   imgLoadNow:0,//当前完成的图片数量
   imgLoadAll:0,//所有图片
   imgLoadTimer:null,//计时器
-  imgLoadTimeOut:0//time out 时间 （50）
+  imgLoadTimeOut:0,//time out 时间 （50）
+  imgLoadFlag:true
 }
 
 $.fn.extend({
@@ -229,6 +230,7 @@ function backShow(k,back)
 //图片加载函数
 function imgLoad()
 {
+  if(!S.imgLoadFlag) return false;
   if(S.imgLoadNow>=S.imgLoadAll||S.imgLoadTimeOut>50)
   {
     S.imgLoadNow=0;
@@ -236,13 +238,15 @@ function imgLoad()
     return false;
   }
   S.imgLoad=$('.works .img_p:eq('+S.imgLoadNow+')');
-  var imgName=S.imgLoad.find('.img').attr('data-src');
+  var imgName=S.imgLoad.find('.img').attr('data-name');
   if(S.ls&&S.ls[imgName]!=undefined&&S.ls[imgName]!='')
   {
     S.imgLoad.html('<img src="'+S.ls[imgName]+'">');
+    S.imgLoadNow++;
   }
   else
   {
+    S.imgLoadFlag=false;
     var xhr = $.ajax({
       type: "HEAD",
       url: S.images+imgName,
@@ -252,14 +256,14 @@ function imgLoad()
         var html='<span>[图片] '+mb+'</span>';
         S.imgLoad.find('.img').html(html).bind('click',function(){
           var scrollTop=$('.tpl').scrollTop();
-          var imgName=$(this).attr('data-src');
+          var imgName=$(this).attr('data-name');
           $(this).parent('.img_p').html('<img src="'+S.images+imgName+'">');
           S.ls.setItem(imgName,S.images+imgName);
         });
+        if(S.imgLoad.find('img,.img span').length>0) S.imgLoadNow++;
+        S.imgLoadFlag=true;
       }
     });
   }
-
-  if(S.imgLoad.find('img,.img span').length>0) S.imgLoadNow++;
   S.imgLoadTimeOut++;
 }

@@ -14,7 +14,7 @@
   <div class="c-body">
     <p class="text">用途：看视频非全屏时用的，将播放器周围变暗，变得更容易观看（理论上，不过讲真我觉得无所谓，因为我微博背景是个动图，我刷微博都没被背景分过心。</p>
     <p class="text">下载页面中日双语，强行装逼，2333</p>
-    <p class="img_p"><a class="img" data-src="switch_1.gif" href="javascript:;"></a></p>
+    <p class="img_p"><a class="img" data-name="switch_1.gif" href="javascript:;"></a></p>
     <p class="text">原文章有些图片不太能拿出手，就是那个“蒜头鼻”，发个链接好了。点<a href="http://t.cn/EZd6NhZ">这里</a>查看原文。</p>
     <div class="bg"></div>
   </div>

@@ -136,8 +136,10 @@
         </li>
         <li id="videoList">
           <p><a v-data="jpinput" href="javascript:;">人型自走输入法</a></p>
+          <p><a v-data="getUrl" href="javascript:;">一键获取专栏内的所有网址</a></p>
           <p><a v-data="switch" href="javascript:;">Switch关灯工具</a></p>
           <p><a v-data="jianjie" href="javascript:;">B站最骚简介 v3.0</a></p>
+          <p><a v-data="sync" href="javascript:;">网页收藏、同步</a></p>
           <p><a href="http://space.bilibili.com/2198461/#/">更多视频</a></p>
           <div class="bg"></div>
         </li>
@@ -150,7 +152,9 @@
 var videos={
   'jpinput':['8521956','18048077'],
   'switch':['18696545','30496282'],
-  'jianjie':['27739145','47883573']
+  'jianjie':['27739145','47883573'],
+  'sync':['23280155','38773233'],
+  'getUrl':['25648765','43741264']
 };
 $(document).ready(function(){
   if(!S.isPhone) $("#_video").mCustomScrollbar({
