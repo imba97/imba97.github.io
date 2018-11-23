@@ -22,6 +22,26 @@ var S={
   imgLoadFlag:true
 }
 
+var R={
+
+}
+
+$.extend({
+  //加载图
+  'code':function(){
+    var codeReg = '<pre>{{code}}</pre>';
+
+    $('.code').each(function(){
+      var code = $.trim($(this).html());
+      var name = $(this).attr('data-code');
+      var re_code = codeReg.replace(/{{code}}/g, code);
+      $(this).html(re_code).addClass(name);
+
+      hljs.highlightBlock($(this)[0]);
+    });
+  }
+});
+
 $.fn.extend({
   //加载图
   'none':function(){

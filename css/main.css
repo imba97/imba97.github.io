@@ -1,4 +1,4 @@
-body,div,p,ul,li{margin:0;padding:0;}
+body,div,p,ul,li,pre,code{margin:0;padding:0;}
 body{overflow:hidden;}
 li{list-style:none;}
 @media screen and (min-width: 1000px) and (max-width: 9999px)
@@ -34,6 +34,13 @@ a{text-decoration:none;color:#000}
     border-radius:10px;
     overflow:hidden;
   }
+
+  .code
+  {
+    width:600px;
+    border-radius:10px;
+    font-size:16px;
+  }
 }
 @media screen and (max-width: 640px)
 {
@@ -63,6 +70,12 @@ a{text-decoration:none;color:#000}
   .works .c-body
   {
     padding:20px 0;
+  }
+
+  .code
+  {
+    width:90%;
+    border-radius:5px;
   }
 }
 #header
@@ -237,7 +250,6 @@ a{text-decoration:none;color:#000}
   z-index:-1;
 }
 
-
 @keyframes colorChange
 {
 	0%   {background:#CCC;}
@@ -260,4 +272,22 @@ a{text-decoration:none;color:#000}
 {
 	0%   {background:#CCC;}
 	100% {background:#666;}
+}
+
+.code
+{
+  position:relative;
+  margin:5px auto;
+  padding:1% 3%;
+  box-sizing:border-box;
+}
+.code::before
+{
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:1%;
+  height:100%;
+  /* background-color:#060; */
+  background-color:#CCC;
 }
