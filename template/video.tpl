@@ -150,28 +150,28 @@
 </div>
 <script>
 var videos={
-  'jpinput':['8521956','18048077'],
-  'switch':['18696545','30496282'],
-  'jianjie':['27739145','47883573'],
-  'sync':['23280155','38773233'],
-  'getUrl':['25648765','43741264']
+  'jpinput': ['8521956','18048077'],
+  'switch': ['18696545','30496282'],
+  'jianjie': ['27739145','47883573'],
+  'sync': ['23280155','38773233'],
+  'getUrl': ['25648765','43741264']
 };
 $(document).ready(function(){
   if(!S.isPhone) $("#_video").mCustomScrollbar({
     axis:'y'
   });
   $('#_video #videoList p a').click(function(){
-    var vName=$(this).attr('v-data');
-    if(vName!=undefined)
+    var vName = $(this).attr('v-data');
+    if(vName != undefined)
     {
-      $("#_video").mCustomScrollbar('scrollTo','top');
+      $("#_video").mCustomScrollbar('scrollTo', 'top');
       $('.v-all ul #videoBox .v .video').fadeOut(function(){
         $(this).remove();
-        $('.v-all ul #videoBox .v').html('<iframe class="video" height="100%" width="100%" src="https://player.bilibili.com/player.html?aid='+videos[vName][0]+'&cid='+videos[vName][1]+'&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>');
+        $('.v-all ul #videoBox .v').html('<iframe class="video" height="100%" width="100%" src="https://player.bilibili.com/player.html?aid=' + videos[vName][0] + '&cid=' + videos[vName][1] + '&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>');
       });
     }
   });
   setTimeout(function(){
-  },0);
-}).attr('title','视频们'+S.title);
+  }, 0);
+}).attr('title', '视频们' + S.title);
 </script>

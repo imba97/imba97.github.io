@@ -3,9 +3,14 @@
 
 ## 在这里写更新日志好了
 
+### 2018-11-26
+* 美化代码格式
+* 新增`codeTplLoad`
+
 ### 2018-11-23
-* 新增 `lighlight` 代码高亮插件
-* 为代码插件新增便利化的函数
+* 新增代码高亮插件
+* 为代码高亮插件新增便利化的函数
+* 新增`lighlight`
 
 ### 2018-11-06
 * 稍微优化加载图片功能，降低失误率
@@ -22,14 +27,14 @@
 
 ### 2018-10-31
 * 添加百度统计代码
-* 新增 `video`
+* 新增`video`
 
 ### 2018-10-30
-* 更新内容 `worksSiteConnect`、`worksWhoisRed`、`index` 等
-* 新增 `worksSwitch`、`worksGetUrl`
-* 为 `.works .text a` 增加圆角
+* 更新内容 `worksSiteConnect`、`worksWhoisRed`、`index`等
+* 新增`worksSwitch`、`worksGetUrl`
+* 为`.works .text a`增加圆角
 
 ### 2018-10-29
 * 修复返回按钮不会自动取消显示的问题
-* 修复作品页内容ID全是 `_worksJpinput` 的误操作
+* 修复作品页内容ID全是`_worksJpinput`的误操作
 * 整体优化，页面基本成型（其实我忘了更新了啥）

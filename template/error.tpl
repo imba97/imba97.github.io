@@ -49,9 +49,9 @@
 </div>
 <script>
 $(document).ready(function(){
-  if(S.tpl!=null)
+  if(S.tpl != null)
   {
-    $('#tempname').text('“'+S.tpl+'”');
+    $('#tempname').text('“' + S.tpl + '”');
   }
-}).attr('title','fa♂生了错误 '+S.tpl+S.title);
+}).attr('title', 'fa♂生了错误 ' + S.tpl + S.title);
 </script>

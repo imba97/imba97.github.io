@@ -144,6 +144,11 @@ a{text-decoration:none;color:#000}
 {
   color:#FFF;
 }
+#footer #refresh
+{
+  position:absolute;
+  top:3px;right:30px;
+}
 
 .works
 {

@@ -7,5 +7,5 @@
 <script>
 $(document).ready(function(){
 
-}).attr('title',''+S.title);
+}).attr('title', '' + S.title);
 </script>

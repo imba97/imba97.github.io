@@ -28,5 +28,5 @@ $(document).ready(function(){
   });
 
   _hmt.push(['_setPageTag', '5343', '作品页']);
-}).attr('title','一键获取专栏网址'+S.title);
+}).attr('title', '一键获取专栏网址' + S.title);
 </script>

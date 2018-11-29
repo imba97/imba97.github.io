@@ -74,19 +74,19 @@ $(document).ready(function(){
     axis:'y'
   });
   $('#_about .content ul li').each(function(){
-    var wh=$(this).find('span,a').outerWidth();
-    var color=new Array('#000','#111','#222');
-    var rand=random(10,30);
+    var wh = $(this).find('span,a').outerWidth();
+    var color = new Array('#000','#111','#222');
+    var rand = random(10, 30);
     $(this).css({
-      'width':wh+rand,
-      'height':wh+rand,
-      'line-height':wh+rand+'px',
-      'border-radius':wh+rand,
-      'margin':'0 '+random(0,10)+'px'
-    }).find('.bg').css({'background-color':color[random(0,color.length-1)],'opacity':0.6});
+      'width': wh+rand,
+      'height': wh+rand,
+      'line-height': wh+rand + 'px',
+      'border-radius': wh + rand,
+      'margin': '0 ' + random(0,10) + 'px'
+    }).find('.bg').css({'background-color': color[random(0, color.length - 1)],'opacity': 0.6});
   });
 
 
   _hmt.push(['_setPageTag', '5342', '关于我']);
-}).attr('title','关于我'+S.title);
+}).attr('title', '关于我' + S.title);
 </script>

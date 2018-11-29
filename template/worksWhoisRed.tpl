@@ -25,5 +25,5 @@ $(document).ready(function(){
   });
 
   _hmt.push(['_setPageTag', '5343', '作品页']);
-}).attr('title','查询域名到期时间'+S.title);
+}).attr('title', '查询域名到期时间' + S.title);
 </script>

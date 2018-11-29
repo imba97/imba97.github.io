@@ -81,7 +81,6 @@ var re_code = codeReg.replace(/{{code}}/g, code);
 $(this).html(re_code).addClass(name);
 
 hljs.highlightBlock($(this)[0]);
-});
 </div>
 
 <div class="c">
