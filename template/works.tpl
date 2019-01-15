@@ -102,6 +102,7 @@ $(document).ready(function(){
     axis:'y'
   });
   $('#_works .w-all ul li').click(function(){
+    if(S.isView) return false;
     $(this).animate({'margin-left':200,'opacity':0});
   });
 

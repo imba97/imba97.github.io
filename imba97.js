@@ -14,6 +14,10 @@ var S = {
   w_w: $(window).width(),
   w_h: $(window).height(),
 
+  // 模板框宽高
+  tpl_w: 0,
+  tpl_h: 0,
+
   //正在显示模板的div（第一次是0显示）
   view: 1,
 
@@ -36,8 +40,11 @@ var S = {
 
   // 显示返回按钮的模板
   back: [
-    'worksJpinput','worksSiteConnect','worksWhoisRed',
-    'worksSwitch','worksGetUrl'
+    'worksJpinput', 'worksSiteConnect', 'worksWhoisRed',
+    'worksSwitch', 'worksGetUrl',
+
+    // outerPages
+    'highlight', 'codeTplLoad', 'Btools'
   ],
 
   // 储存.img
@@ -128,9 +135,11 @@ $(document).ready(function(){
       $('#header ul').css({'height':50}).find('#menu a').attr('data', '0');
     }
     if(S.header_h == 0) S.header_h = 50;
+    S.tpl_w = S.w_w;
+    S.tpl_h = S.w_h - S.header_h - S.footer_h;
     $('#main,#main .tpl').css({
-      'width': S.w_w,
-      'height': S.w_h - S.header_h - S.footer_h
+      'width': S.tpl_w,
+      'height': S.tpl_h
     });
   }
   $('#main div[view-data=1]').css({'left':-S.w_w});
@@ -145,6 +154,7 @@ $(document).ready(function(){
     S.tpl = location.hash.substring(1);
     if(S.isPhone && $.inArray(S.tpl, S.back) >= 0)
     {
+      S.backShow = false;
       backShow(true);
     }
     else
@@ -280,7 +290,7 @@ function backShow(k, back)
   S.backShow = true;
   if(k)
   {
-    $('#header .back').fadeIn(1000, function(){
+    $('#header .back').stop(true).fadeIn(1000, function(){
       S.backShow = false;
     });
   }
@@ -294,7 +304,7 @@ function backShow(k, back)
     {
       window.location = '#works';
     }
-    $('#header .back').fadeOut(1000, function(){
+    $('#header .back').stop(true).fadeOut(1000, function(){
       S.backShow = false;
     });
   }

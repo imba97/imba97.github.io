@@ -289,7 +289,7 @@ a{text-decoration:none;color:#000}
 .code::before
 {
   content:'';
-  position:absolute;
+  position: absolute;
   top:0;left:0;
   width:1%;
   height:100%;

@@ -62,8 +62,10 @@
     <li><span>我jio得布星</span><div class="bg"></div></li>
     <li><span>情商零</span><div class="bg"></div></li>
     <li><span>开口得罪人</span><div class="bg"></div></li>
+    <li><span>英语负级</span><div class="bg"></div></li>
     <li><a href="https://www.weibo.com/imbajq">微博</a><div class="bg"></div></li>
     <li><a href="https://space.bilibili.com/2198461/#/">B站</a><div class="bg"></div></li>
+    <li><a href="http://btools.cc">Btools</a><div class="bg"></div></li>
   </ul>
   <div class="clear"></div>
 </div>
