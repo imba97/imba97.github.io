@@ -3,6 +3,9 @@
 
 ## 在这里写更新日志好了
 
+### 2019-07-17
+* 终于想起了这个网站，增加canvas背景（[背景源码](from：https://codepen.io/electro-z/pen/JQyovo)）
+
 ### 2019-01-14
 * 新增`outerPages`、`Btools`
 

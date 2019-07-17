@@ -174,7 +174,7 @@ $(document).ready(function(){
     if(tpl.t != null && tpl.t != '')
     {
       S.tpl = tpl.t;
-      var url = S.template + S.tpl + '.tpl';
+      var url = S.template + S.tpl + '.html';
     }
     if(url == undefined || url == '')
     {
@@ -183,7 +183,7 @@ $(document).ready(function(){
         S.tpl = 'index';
         location.hash = S.tpl;
       }
-      var url = S.template + S.tpl + '.tpl';
+      var url = S.template + S.tpl + '.html';
     }
     $('#main div[view-data=' + v + ']').animate({'opacity':0}, function(){
       $(this).html('').hide();
@@ -204,7 +204,7 @@ $(document).ready(function(){
           }
           else
           {
-            $(this).load(S.template + 'error.tpl?'+new Date().getTime().toString());
+            $(this).load(S.template + 'error.html?'+new Date().getTime().toString());
             return false;
           }
         });
